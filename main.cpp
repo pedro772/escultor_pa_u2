@@ -1,125 +1,116 @@
-#include <iostream>
+#include <vector>
 #include <fstream>
 #include <sstream>
-#include <string>
-#include <vector>
-#include "sculptor.h"
+
+#include "putvoxel.h"
+#include "cutvoxel.h"
+#include "putbox.h"
+#include "cutbox.h"
+#include "putsphere.h"
+#include "cutsphere.h"
+#include "putellipsoid.h"
+#include "cutellipsoid.h"
+
+using std::ifstream;
+using std::cout;
+using std::endl;
+using std::vector;
+using std::string;
+using std::stringstream;
+
 
 int main() {
-    Sculptor *policeCar;
-    int dimensionX=120, dimensionY=120, dimensionZ=120;
+    ifstream inputFile;
+    inputFile.open("C:/Users/pedro/Documents/UFRN/programacao_avancada/escultor_pa_u2/policeCar.txt");
 
-    policeCar = new Sculptor(dimensionX,dimensionY,dimensionZ);
+    if(!inputFile)
+    {
+        cout<<"Não abriu"<<endl;
+        exit(1);
+    }
 
-    // estrutura principal
-    policeCar->setColor(190,190,190,1);
-    policeCar->putBox(0,80,10,34,0,30);
-    policeCar->cutBox(10,20,10,17,0,30);
-    policeCar->cutBox(60,70,10,17,0,30);
-    policeCar->cutBox(0,15,23,34,0,30);
-    policeCar->cutBox(65,80,23,34,0,30);
-    policeCar->cutBox(0,4,10,14,0,30);
-    policeCar->cutBox(76,80,10,14,0,30);
+    vector<string> linhas;
+    string linha;
 
-    // parachoques
-    policeCar->setColor(0,0,0,0.5);
-    policeCar->putBox(0,4,10,14,0,30);
-    policeCar->putBox(76,80,10,14,0,30);
+    while(getline(inputFile,linha))
+    {
+        linhas.push_back(linha);
+    }
 
-    // eixo frontal
-    policeCar->setColor(0,0,0,0.5);
-    policeCar->putSphere(15,10,2,5);
-    policeCar->cutBox(10,20,5,15,5,10);
-    policeCar->putSphere(15,10,28,5);
-    policeCar->cutBox(10,20,5,15,20,25);
-    policeCar->cutBox(10,20,5,15,31,35);
-    policeCar->putBox(14,16,9,11,4,26);
-    policeCar->putBox(14,16,11,17,13,15);
+    int nx=0,ny=0,nz=0;
+    stringstream header(linhas[0]);
+    string nome;
+    header >> nome;
+    header >> nx >> ny >> nz;
 
-    // eixo traseiro
-    policeCar->setColor(0,0,0,0.5);
-    policeCar->putSphere(65,10,2,5);
-    policeCar->cutBox(60,70,5,15,5,10);
-    policeCar->putSphere(65,10,28,5);
-    policeCar->cutBox(60,70,5,15,20,25);
-    policeCar->cutBox(60,70,5,15,31,35);
-    policeCar->putBox(64,66,9,11,4,26);
-    policeCar->putBox(64,66,11,17,13,15);
+    Sculptor t(nx,ny,nz); //nx,ny,nz
 
-    // farois frontais
-    policeCar->cutBox(0,1,17,19,2,8);
-    policeCar->setColor(255,255,255,1);
-    policeCar->putBox(0,1,17,19,2,8);
-    policeCar->setColor(255,255,0,1);
-    policeCar->putVoxel(0,18,0);
-    policeCar->putVoxel(0,18,1);
-    policeCar->putVoxel(0,17,1);
-    policeCar->putVoxel(0,19,1);
-    policeCar->cutBox(0,1,17,19,22,28);
-    policeCar->setColor(255,255,255,1);
-    policeCar->putBox(0,1,17,19,22,28);
-    policeCar->setColor(255,255,0,1);
-    policeCar->putVoxel(0,18,30);
-    policeCar->putVoxel(0,18,29);
-    policeCar->putVoxel(0,17,29);
-    policeCar->putVoxel(0,19,29);
+    vector<FiguraGeometrica*> figs;
 
-    // farois traseiros
-    policeCar->cutBox(79,80,17,19,2,8);
-    policeCar->setColor(255,0,0,1);
-    policeCar->putBox(79,80,17,19,2,8);
-    policeCar->setColor(255,255,0,1);
-    policeCar->putVoxel(80,18,0);
-    policeCar->putVoxel(80,18,1);
-    policeCar->putVoxel(80,17,1);
-    policeCar->putVoxel(80,19,1);
-    policeCar->cutBox(79,80,17,19,22,28);
-    policeCar->setColor(255,0,0,1);
-    policeCar->putBox(79,80,17,19,22,28);
-    policeCar->setColor(255,255,0,1);
-    policeCar->putVoxel(80,18,30);
-    policeCar->putVoxel(80,18,29);
-    policeCar->putVoxel(80,17,29);
-    policeCar->putVoxel(80,19,29);
-    policeCar->setColor(255,255,255,1);
-    policeCar->putBox(80,80,18,18,23,27);
-    policeCar->putBox(80,80,18,18,3,7);
+    for(int i=1; i<static_cast<int>(linhas.size());i++){
+        stringstream tipo(linhas[i]);
+        tipo >> nome;
 
-    // giroflex
-    policeCar->setColor(255,0,0,0.1);
-    policeCar->putEllipsoid(25,36,15,3,2,10);
+        if( nome == "putVoxel"){
+            int x,y,z;
+            float r,g,b,a;
+            tipo >> x >> y >> z >> r>> g >> b >> a;
+            figs.push_back(new PutVoxel(x,y,z,r,g,b,a));
+        }
 
-    // portas
-    policeCar->setColor(80,80,80,1);
-    policeCar->putBox(63,63,19,33,0,0);
-    policeCar->putBox(63,63,19,33,30,30);
-    policeCar->putBox(58,63,19,19,0,0);
-    policeCar->putBox(58,63,19,19,30,30);
-    policeCar->putBox(58,58,11,19,30,30);
-    policeCar->putBox(58,58,11,19,0,0);
-    policeCar->putBox(17,17,19,33,0,0);
-    policeCar->putBox(17,17,19,33,30,30);
-    policeCar->putBox(17,22,19,19,0,0);
-    policeCar->putBox(17,22,19,19,30,30);
-    policeCar->putBox(22,22,11,19,30,30);
-    policeCar->putBox(22,22,11,19,0,0);
-    policeCar->putBox(17,63,33,33,0,0);
-    policeCar->putBox(17,63,33,33,30,30);
-    policeCar->putBox(22,58,11,11,0,0);
-    policeCar->putBox(22,58,11,11,30,30);
-    policeCar->putBox(40,40,11,33,0,0);
-    policeCar->putBox(40,40,11,33,30,30);
-    policeCar->setColor(150,150,150,1);
-    policeCar->putBox(41,41,12,32,30,30);
-    policeCar->putBox(41,41,12,32,0,0);
-    policeCar->putBox(39,39,12,32,30,30);
-    policeCar->putBox(39,39,12,32,0,0);
-    policeCar->setColor(0,0,0,1);
-    policeCar->putBox(35,37,22,22,0,0);
-    policeCar->putBox(35,37,22,22,30,30);
-    policeCar->putBox(59,61,22,22,0,0);
-    policeCar->putBox(59,61,22,22,30,30);
+        else if (nome == "cutVoxel"){
+            int x,y,z;
+            tipo >>x >> y >> z;
+            figs.push_back(new CutVoxel(x,y,z));
+        }
+        else if( nome == "putBox"){
+            int x0,x1,y0,y1,z0,z1;
+            float r,g,b,a;
+            tipo >> x0 >> x1 >> y0 >> y1 >> z0 >> z1 >> r >> g >> b >> a;
+            figs.push_back(new PutBox(x0,x1,y0,y1,z0,z1,r,g,b,a));
+        }
+        else if( nome == "cutBox"){
+            int x0,x1,y0,y1,z0,z1;
+            tipo >> x0 >> x1 >> y0 >> y1 >> z0 >> z1;
+            figs.push_back(new CutBox(x0,x1,y0,y1,z0,z1));
+        }
+        else if(nome == "putSphere"){
+            int x,y,z,rd;
+            float r,g,b,a;
+            tipo >> x >> y >> z >> rd >> r >> g >>b >>a;
+            figs.push_back(new PutSphere(x,y,z,rd,r,g,b,a));
 
-    policeCar -> writeOFF("C:/Users/pedro/Documents/UFRN/programacao_avancada/escultor_pa_u2/police_car.off");
+        }
+
+        else if(nome == "cutSphere"){
+            int x,y,z,rd;
+            tipo >> x >> y >> z >> rd;
+            figs.push_back(new CutSphere(x,y,z,rd));
+        }
+
+        else if (nome == "putEllipsoid") {
+            int x,y,z,rx,ry,rz;
+            float r,g,b,a;
+            tipo >> x >> y >> z >> rx >> ry >> rz >> r >> g >> b >> a;
+            figs.push_back(new PutEllipsoid(x,y,z,rx,ry,rz,r,g,b,a));
+        }
+        else if (nome == "cutEllipsoid") {
+            int x,y,z,rx,ry,rz;
+            tipo >> x >> y >> z >> rx >> ry >> rz;
+            figs.push_back(new CutEllipsoid(x,y,z,rx,ry,rz));
+        }
+    }
+
+    for (int i =0; i<static_cast<int>(figs.size()); i++){
+        figs[i]->draw(t);
+    }
+
+    for (int i =0; i<static_cast<int>(figs.size()); i++){
+        delete figs[i];
+    }
+
+    t.writeOFF("C:/Users/pedro/Documents/UFRN/programacao_avancada/escultor_pa_u2/policeCar.off");
+    inputFile.close();
+
     return 0;
 }

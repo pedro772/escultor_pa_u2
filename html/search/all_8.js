@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sculptor_16',['Sculptor',['../class_sculptor.html',1,'Sculptor'],['../class_sculptor.html#a014e3ef5517bf0e9d9e14486b6ac6433',1,'Sculptor::Sculptor()']]],
-  ['sculptor_2eh_17',['sculptor.h',['../sculptor_8h.html',1,'']]],
-  ['setcolor_18',['setColor',['../class_sculptor.html#af1d69da01379874b0dfd6454787cb562',1,'Sculptor']]]
+  ['nx_24',['nx',['../class_sculptor.html#ad1e32f9042538419a3bc7b376f7813b8',1,'Sculptor']]],
+  ['ny_25',['ny',['../class_sculptor.html#a1ce2ff97ec94927928ab3f5ec4ba6761',1,'Sculptor']]],
+  ['nz_26',['nz',['../class_sculptor.html#a33204e7df26a7ee4c7192381a24335d3',1,'Sculptor']]]
 ];

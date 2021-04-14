@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>escultor_pa_unidade2: Lista de componentes</title>
+<title>Sculptor Documentation: Lista de Classes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">escultor_pa_unidade2
+   <div id="projectname">Sculptor Documentation
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">O projeto escultor foi o trabalho da unidade 2 da disciplina de Programação Avançada da UFRN, que tinha como objetivo a construção de uma ferramenta em C++ capaz de realizar escultora em blocos representados por matrizes digitais</div>
   </td>
  </tr>
  </tbody>
@@ -34,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -42,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -64,13 +63,22 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Lista de componentes</div>  </div>
+<div class="title">Lista de Classes</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Lista de classes, estruturas, uniões e interfaces com uma breve descrição:</div><div class="directory">
+<div class="textblock">Aqui estão as classes, estruturas, uniões e interfaces e suas respectivas descrições:</div><div class="directory">
 <table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_sculptor.html" target="_self">Sculptor</a></td><td class="desc">Classe <a class="el" href="class_sculptor.html" title="Classe Sculptor Monta uma estrutura e fornece os métodos para manipulação dos Voxels.">Sculptor</a> Monta uma estrutura e fornece os métodos para manipulação dos Voxels </td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_voxel.html" target="_self">Voxel</a></td><td class="desc">Struct <a class="el" href="struct_voxel.html" title="Struct Voxel: Voxels são equivalente aos já conhecidos pixels, porém em 3 dimensões....">Voxel</a>: Voxels são equivalente aos já conhecidos pixels, porém em 3 dimensões. Os Voxels armazenam informações como cor e transparência, que são necessárias para construir a escultura </td></tr>
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_cut_box.html" target="_self">CutBox</a></td><td class="desc"><a class="el" href="class_cut_box.html" title="CutBox desativa todos os voxels no intervalo x∈[x0,x1], y∈[y0,y1], z∈[z0,z1].">CutBox</a> desativa todos os voxels no intervalo x∈[x0,x1], y∈[y0,y1], z∈[z0,z1] </td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_cut_ellipsoid.html" target="_self">CutEllipsoid</a></td><td class="desc"><a class="el" href="class_cut_ellipsoid.html" title="CutEllipsoid ativa todos os voxels que satisfazem à equação do elipsoide e atribui aos mesmos a cor d...">CutEllipsoid</a> ativa todos os voxels que satisfazem à equação do elipsoide e atribui aos mesmos a cor definida em setColor </td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_cut_sphere.html" target="_self">CutSphere</a></td><td class="desc"><a class="el" href="class_cut_sphere.html" title="CutSphere desativa todos os voxels que satisfazem à equação da esfera.">CutSphere</a> desativa todos os voxels que satisfazem à equação da esfera </td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_cut_voxel.html" target="_self">CutVoxel</a></td><td class="desc"><a class="el" href="class_cut_voxel.html" title="CutVoxel desativa o voxel na posição (x,y,z), fazendo isOn = false.">CutVoxel</a> desativa o voxel na posição (x,y,z), fazendo isOn = false </td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_figura_geometrica.html" target="_self">FiguraGeometrica</a></td><td class="desc">A classe <a class="el" href="class_figura_geometrica.html" title="A classe FiguraGeometrica é a superclasse de referência para todas as classes que trabalham com forma...">FiguraGeometrica</a> é a superclasse de referência para todas as classes que trabalham com formas </td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_put_box.html" target="_self">PutBox</a></td><td class="desc"><a class="el" href="class_put_box.html" title="PutBox ativa todos os voxels no intervalo x∈[x0,x1], y∈[y0,y1], z∈[z0,z1] e atribui aos mesmos a cor ...">PutBox</a> ativa todos os voxels no intervalo x∈[x0,x1], y∈[y0,y1], z∈[z0,z1] e atribui aos mesmos a cor definida em setColor </td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_put_ellipsoid.html" target="_self">PutEllipsoid</a></td><td class="desc"><a class="el" href="class_put_ellipsoid.html" title="PutEllipsoid ativa todos os voxels que satisfazem a equação do elipsoide e atribui aos mesmos a cor d...">PutEllipsoid</a> ativa todos os voxels que satisfazem a equação do elipsoide e atribui aos mesmos a cor definida em setColor </td></tr>
+<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_put_sphere.html" target="_self">PutSphere</a></td><td class="desc"><a class="el" href="class_put_sphere.html" title="putSphere ativa todos os voxels que satisfazem à equação da esfera e atribui aos mesmos a cor definid...">PutSphere</a> ativa todos os voxels que satisfazem à equação da esfera e atribui aos mesmos a cor definida em setColor </td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_put_voxel.html" target="_self">PutVoxel</a></td><td class="desc"><a class="el" href="class_put_voxel.html" title="PutVoxel ativa o voxel na posição (x,y,z) - fazendo isOn = true - e atribui ao mesmo a cor definida e...">PutVoxel</a> ativa o voxel na posição (x,y,z) - fazendo isOn = true - e atribui ao mesmo a cor definida em setColor </td></tr>
+<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_sculptor.html" target="_self">Sculptor</a></td><td class="desc">Classe <a class="el" href="class_sculptor.html" title="Classe Sculptor Monta uma estrutura e fornece os métodos para manipulação dos Voxels.">Sculptor</a> Monta uma estrutura e fornece os métodos para manipulação dos Voxels </td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_voxel.html" target="_self">Voxel</a></td><td class="desc">Struct <a class="el" href="struct_voxel.html" title="Struct Voxel: Voxels são equivalente aos já conhecidos pixels, porém em 3 dimensões....">Voxel</a>: Voxels são equivalente aos já conhecidos pixels, porém em 3 dimensões. Os Voxels armazenam informações como cor e transparência, que são necessárias para construir a escultura </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

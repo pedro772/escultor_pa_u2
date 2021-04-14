@@ -110,72 +110,10 @@ public:
     void cutVoxel(int x, int y, int z);
 
     /**
-     * @brief putBox ativa todos os voxels no intervalo x∈[x0,x1], y∈[y0,y1], z∈[z0,z1] e atribui aos mesmos a cor definida em setColor
-     * @param x0 é a coordenada do ponto inicial no eixo x
-     * @param x1 é a coordenada do ponto final no eixo x
-     * @param y0 é a coordenada do ponto inicial no eixo y
-     * @param y1 é a coordenada do ponto final no eixo y
-     * @param z0 é a coordenada do ponto inicial no eixo z
-     * @param z1 é a coordenada do ponto final no eixo z
-     */
-    void putBox(int x0, int x1,int y0, int y1,int z0, int z1);
-
-    /**
-     * @brief cutBox desativa todos os voxels no intervalo x∈[x0,x1], y∈[y0,y1], z∈[z0,z1] e atribui aos mesmos a cor definida em setColor
-     * @param x0 é a coordenada do ponto inicial no eixo x
-     * @param x1 é a coordenada do ponto final no eixo x
-     * @param y0 é a coordenada do ponto inicial no eixo y
-     * @param y1 é a coordenada do ponto final no eixo y
-     * @param z0 é a coordenada do ponto inicial no eixo z
-     * @param z1 é a coordenada do ponto final no eixo z
-     */
-    void cutBox(int x0, int x1,int y0, int y1,int z0, int z1);
-
-    /**
-     * @brief putSphere ativa todos os voxels que satisfazem à equação da esfera e atribui aos mesmos a cor definida em setColor
-     * @param xcenter é a coordenada x do centro da esfera
-     * @param ycenter é a coordenada y do centro da esfera
-     * @param zcenter é a coordenada z do centro da esfera
-     * @param radius é o raio da esfera
-     */
-    void putSphere(int xcenter, int ycenter, int zcenter, int radius);
-
-    /**
-     * @brief cutSphere desativa todos os voxels que satisfazem a equação da esfera
-     * @param xcenter é a coordenada x do centro da esfera
-     * @param ycenter é a coordenada y do centro da esfera
-     * @param zcenter é a coordenada z do centro da esfera
-     * @param radius é o raio da esfera
-     */
-    void cutSphere(int xcenter, int ycenter, int zcenter, int radius);
-
-    /**
-     * @brief putEllipsoid ativa todos os voxels que satisfazem a equação do elipsoide e atribui aos mesmos a cor definida em setColor
-     * @param xcenter é a coordenada x do centro do elipsoide
-     * @param ycenter é a coordenada y do centro do elipsoide
-     * @param zcenter é a coordenada z do centro do elipsoide
-     * @param rx é o raio na direção x
-     * @param ry é o raio na direção y
-     * @param rz é o raio na direção z
-     */
-    void putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
-
-    /**
-     * @brief cutEllipsoid desativa todos os voxels que satisfazem a equação do elipsoide
-     * @param xcenter é a coordenada x do centro do elipsoide
-     * @param ycenter é a coordenada y do centro do elipsoide
-     * @param zcenter é a coordenada z do centro do elipsoide
-     * @param rx é o raio na direção x
-     * @param ry é o raio na direção y
-     * @param rz é o raio na direção z
-     */
-    void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
-
-    /**
      * @brief writeOFF grava a escultura no formato OFF no arquivo filename
      * @param filename armazena caminho do arquivo .off
      */
-    void writeOFF(char* filename);
+    void writeOFF(const std::string filename);
 };
 
 #endif // SCULPTOR_H
