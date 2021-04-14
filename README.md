@@ -7,4 +7,6 @@ Repo criado para armazenar os arquivos projeto da unidade 2 da disciplina de Pro
 
 O objetivo desse projeto é construir uma ferramenta em C++ para realizar esculturas em blocos representados por matrizes digitais, algo como a ideia usada pelo jogo minecraft.
 
-Recomenda-se o programa MeshLab para visualização do arquivo .OFF
+Recomenda-se o programa MeshLab para visualização do arquivo .OFF.
+
+A documentação do projeto foi feita usando a ferramenta Doxygen.
